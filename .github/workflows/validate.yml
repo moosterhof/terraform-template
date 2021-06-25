@@ -1,11 +1,6 @@
 ---
 name: Validate
 
-defaults:
-  run:
-    working-directory: ${{ env.tf_actions_working_dir }}
-
-
 # Triggers the workflow on push or pull request events
 on: [push, pull_request]  # yamllint disable-line rule:truthy
 

@@ -9,18 +9,22 @@ jobs:
     runs-on: ubuntu-latest
     name: terraform validate
     steps:
+      - name: Github checkout repository
+        id: git-checkout
+        uses: actions/checkout@v2
+
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v1.2.1
 
       - name: Terraform fmt
-        id: fmt
+        id: terraform-fmt
         run: terraform fmt -check
         continue-on-error: true
 
       - name: Terraform init
-        id: init
+        id: terraform-init
         run: terraform init
 
       - name: Terraform validate
-        id: validate
+        id: terraform-validate
         run: terraform validate -no-color
